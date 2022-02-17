@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire;
 
+use App\Jobs\Ejemplo;
+use App\Jobs\SendEmail;
 use App\Models\PointIt;
 use Livewire\WithFileUploads;
 use App\Models\UserGroup;
@@ -42,6 +44,10 @@ class CreatePoint extends Component
         $point->save();        
         $this->title = '';
         $this->description = '';
+        // php artisan queue:work /* para ejecutar las tareas */
+        SendEmail::dispatch('jlsc.hco17@gmail.com', 'Enviado por colas');
+        // Ejemplo::dispatch('hola cmo estas');
+
     }
     public function render()
     {
