@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -12,7 +13,6 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-
         @livewireStyles
 
         <!-- Scripts -->
@@ -21,15 +21,14 @@
     <body class="font-sans antialiased">
         <x-jet-banner />
 
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen bg-gray-400">
             @livewire('navigation-menu')
-            <br>
-            <br>
-            <br>
-            @livewire('list-groups')
-        </div>
+            <div class="text-center">
+                <h2 class="font-semibold text-6xl">{{$title}} group</h2>
+            </div>
 
-        @stack('modals')
+            @livewire('create-point',['id_grupo' => $id_grupo])
+        </div>
 
         @livewireScripts
     </body>

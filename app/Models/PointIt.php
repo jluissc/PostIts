@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class PointIt extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'title',
+        'description',
+        'img',
+        'user_id',
+        'group_id',
+    ];
 }

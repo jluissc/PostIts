@@ -19,7 +19,7 @@ class PointItFactory extends Factory
         return [
             'title' => $this->faker->title(),
             'description' => $this->faker->text(),
-            'img' => $this->faker->image('public/img/', 400, 300, null, false),
+            'img' => $this->faker->image('public/img/point/', 400, 300, null, false),
             'user_id' => $this->faker->numberBetween(1,10),
             'group_id' => $this->faker->numberBetween(1,5),
         ];
