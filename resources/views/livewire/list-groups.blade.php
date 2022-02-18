@@ -1,4 +1,7 @@
 <div class="p-8 m-8">
+   <div class="font-semibold text-6xl text-center">
+      <h2>List of Groups</h2>
+   </div>
     <section class="bg-white py-20 lg:py-[120px]">
         <div class="container">
            <div class="flex flex-wrap -mx-4">

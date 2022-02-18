@@ -73,18 +73,31 @@
             UNIRME 
         </button>
     @endif
-    <div class="grid grid-cols-4 gap-4 p-8">
+    <div class="grid lg:grid-cols-6 md:grid-cols-4 gap-4 p-8">
         @foreach ($postits as $post)
-        <div class="max-w-sm rounded overflow-hidden shadow-sm">
-            <div class="b">
-                <img class="w-full" src="{{asset('img/point/'.$post->img)}}" alt="Sunset in the mountains">
-            </div>
+        <div class="rounded overflow-hidden shadow-sm bg bg-yellow-600">
+            @if ($post->img)
+                <div class="b">
+                    <img class="w-full" src="{{asset('img/point/'.$post->img)}}" alt="Sunset in the mountains">
+                </div>
+            @endif
             <div class="px-6 py-4">
                 <div class="font-bold text-xl mb-2">{{$post->title}}</div>
                 <p class="text-gray-700 text-base">
                     {{$post->description}}
                 </p>
             </div>
+            @if ($status)
+                @livewire('post-like',['id_post'=>$post->id], key($post->id))
+            @else
+            <div> 
+                <button onclick="alertify.error('First join group');">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 " fill="none" viewBox="0 0 24 24" stroke="currentColor" >
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                      </svg>
+                </button>
+            </div>
+            @endif
         </div>
         @endforeach
     </div>

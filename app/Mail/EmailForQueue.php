@@ -18,14 +18,11 @@ class EmailForQueue extends Mailable
  
     public function build()
     {
-        // return $this->view('view.name');
-        // return $this->from('jose.soto.chahua@gmail.com','PEPE')
-        //     ->subject($this->title)
-        //     ->view('email.post')
-        //     ->with([
-        //         'title'=> $this->title,
-        //     ]);
-        return $this->subject($this->title)
-            ->view('email.post');
+        return $this->from('pepbot.pe@gmail.com','PEPE')
+            ->subject($this->title)
+            ->view('email.post')
+            ->with([
+                'title'=> $this->title,
+            ]);
     }
 }
