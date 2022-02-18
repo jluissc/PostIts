@@ -3,6 +3,8 @@
 namespace App\Jobs;
 
 use App\Mail\EmailForQueue;
+use App\Models\User;
+use App\Notifications\SendMail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -13,10 +15,8 @@ use Illuminate\Support\Facades\Mail;
 
 class SendEmail implements ShouldQueue
 {
-    use Dispatchable;
-    use InteractsWithQueue;
-    use Queueable;
-    use SerializesModels;
+    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    
     protected $title;
     protected $email;
     public function __construct($email,$title)
@@ -29,6 +29,5 @@ class SendEmail implements ShouldQueue
     {
         $email = new EmailForQueue($this->title);
         Mail::to($this->email)->send($email);
-        return 'Correo Enviado';
     }
 }
